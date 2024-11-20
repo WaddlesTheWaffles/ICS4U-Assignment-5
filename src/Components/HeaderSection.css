@@ -1,0 +1,41 @@
+.toolbar {
+    background-color: rgb(29, 27, 27);
+    border-bottom-color: hotpink;
+    border-style: solid;
+    height: 100px;
+    top: 0px;
+    position: sticky;
+    display: flex;
+    justify-content: space-around;
+}
+
+h1 {
+    color: hotpink;
+    font-family: verdana, Helvetica, sans-serif;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
+    left: 15px;
+    position: relative;
+}
+
+#gold {
+    color: gold;
+    font-family: verdana, Helvetica, sans-serif;
+}
+
+button {
+    background-color: hotpink;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: larger;
+    border-radius: 7px;
+    width: 100px;
+    margin: 25px;
+}
+
+button:hover {
+    border: 2px;
+    border-style: solid;
+    border-color: gold;
+}
