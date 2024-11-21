@@ -1,13 +1,12 @@
 import "./HeaderSection.css";
 
-// codespace
 function HeaderSection() {
 
     return (
         <div className="toolbar" >
-            <h1><span id="gold">Crowned</span> Pig</h1>
-            <button>Sign Up</button>
-            <button>Sign In</button>
+            <h1 className="inHeader" ><span id="gold">Crowned</span> Pig</h1>
+            <button className="inHeader" >Sign Up</button>
+            <button className="inHeader" >Sign In</button>
         </div>
     )
 }

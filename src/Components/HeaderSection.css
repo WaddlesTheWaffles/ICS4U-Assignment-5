@@ -9,7 +9,7 @@
     justify-content: space-around;
 }
 
-h1 {
+h1.inHeader {
     color: hotpink;
     font-family: verdana, Helvetica, sans-serif;
     margin-top: auto;
@@ -24,7 +24,7 @@ h1 {
     font-family: verdana, Helvetica, sans-serif;
 }
 
-button {
+button.inHeader {
     background-color: hotpink;
     color: white;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -34,7 +34,7 @@ button {
     margin: 25px;
 }
 
-button:hover {
+button.inHeader:hover {
     border: 2px;
     border-style: solid;
     border-color: gold;
