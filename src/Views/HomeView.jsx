@@ -1,7 +1,7 @@
-import HeaderSection from 'src/Components/HeaderSection.jsx'
-import HeroSection from 'src/Components/HeroSection.jsx'
-import FooterSection from 'src/Components/FooterSection.jsx'
-import FeatureSection from 'src/Components/FeatureSection.jsx'
+import HeaderSection from '../Components/HeaderSection.jsx'
+import HeroSection from '../Components/HeroSection.jsx'
+import FooterSection from '../Components/FooterSection.jsx'
+import FeatureSection from '../Components/FeatureSection.jsx'
 
 function HomeView() {
 
