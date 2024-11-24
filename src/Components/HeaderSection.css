@@ -1,5 +1,6 @@
 .toolbar {
     background-color: rgb(29, 27, 27);
+    z-index: 1000;
     border-bottom-color: hotpink;
     border-style: solid;
     height: 100px;

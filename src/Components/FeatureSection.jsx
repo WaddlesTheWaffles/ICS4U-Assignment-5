@@ -4,26 +4,80 @@ import axios from "axios"
 
 function FeatureSection() {
     const [movies, setMovies] = useState([]);
+    const [movie1, setMovie1] = useState(0);
+    const [movie2, setMovie2] = useState(1);
+    const [movie3, setMovie3] = useState(2);
+    const [fetchingMovies, setFetchingMovies] = useState(true); //true means it's still fetching the movies from the api
 
-    useEffect(() => {
+    useEffect(() => { //Selects 3 random different movies
+        (function randMovies() {
+            let m1 = Math.floor(Math.random() * 20) + 1;
+            let m2, m3;
+
+            do {
+                m2 = Math.floor(Math.random() * 20) + 1;
+            } while (m2 == m1);
+
+            do {
+                m3 = Math.floor(Math.random() * 20) + 1;
+            } while (m3 == m1 || m3 == m2);
+
+            setMovie1(m1);
+            setMovie2(m2);
+            setMovie3(m3);
+        })()
+    }, []);
+
+    useEffect(() => { //calls the api to get the 20 movies in the page
         (async function getMovies() {
-            const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
-            setMovies(response.data.results)
+            try {
+                const responsePages = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?with_original_language=en&language=en-US&api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
+                const page = Math.floor(Math.random() * responsePages.data.total_pages / 2) + 1;
+
+                const responseMovies = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?with_original_language=en&language=en-US&page=${page}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
+                setMovies(responseMovies.data.results);
+                setFetchingMovies(false);
+            } catch (error) {
+                console.error("ERROR in fetching movies", error);
+                setFetchingMovies(false);
+            }
         })();
     }, [])
-    // the [] is so it only runs once
 
-    console.log(movies[2]) //test
+    function renderMoviePosters(movieSlot) {
+        const movie = movies[movieSlot];
+        if (!movie) { //checks if movie is null or undefined
+            return null;
+        }
+
+        return (
+            <div key={movie.id} className="moviePoster">
+                <div className="posterContainer">
+                    <img
+                        src={movie.poster_path ?
+                            `https://image.tmdb.org/t/p/w400${movie.poster_path}`
+                            : `https://placehold.co/400x600?text=Movie+Poster+Unavailable`}
+                        alt={movie.title}
+                    />
+                </div>
+                <h1 className="title">{movie.title}</h1>
+                <div className="nameBar" />
+            </div>
+        )
+    }
 
     return (
-        <div>
-            {movies.map((movie) => (
-                <div key={movie.id}>
-                    <h1>{movie.title}</h1>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                        alt={movie.title} />
-                </div>
-            ))}
+        <div className="featureSection">
+            <h1 className="sectionTitle">Currently Playing</h1>
+            <div className="movieContainer">
+                {fetchingMovies ? <p>Loading...</p> : ( //multiple checks for if the movies array is filled, BUG: only 2 posters will load reason unknown
+                    <>
+                        {movies.length > 19 && renderMoviePosters(movie1)}
+                        {movies.length > 19 && renderMoviePosters(movie2)}
+                        {movies.length > 19 && renderMoviePosters(movie3)}
+                    </>
+                )}
+            </div>
         </div>
     )
 }

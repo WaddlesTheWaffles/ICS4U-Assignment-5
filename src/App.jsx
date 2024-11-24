@@ -1,20 +1,13 @@
-import './App.css'
-import HeaderSection from './Components/HeaderSection'
-import HeroSection from './Components/HeroSection'
-import FooterSection from './Components/FooterSection'
-import FeatureSection from './Components/FeatureSection'
-// Replace These with the view later
-// just for testing
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 
   return (
-    <div>
-      <HeaderSection />
-      <HeroSection />
-      <FeatureSection />
-      <FooterSection />
-    </div>
+    <BrowserRouter>
+      <Routes>
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
