@@ -69,7 +69,6 @@ function FeatureSection() {
                     />
                 </div>
                 <h1 className="title">{movie.title}</h1>
-                <div className="nameBar" />
             </div>
         )
     }
