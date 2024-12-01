@@ -30,14 +30,14 @@ function GenresList(genres = [
 
 export default GenresList
 
-{
-    movies.map((movie) => (
-        <div key={movie.id} className="movie-card" onClick={() => { loadMovie(movie.id) }}>
-            <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="movie-poster"
-            />
-        </div>
-    ))
-}
+// {
+//     movies.map((movie) => (
+//         <div key={movie.id} className="movie-card" onClick={() => { loadMovie(movie.id) }}>
+//             <img
+//                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+//                 alt={movie.title}
+//                 className="movie-poster"
+//             />
+//         </div>
+//     ))
+// }

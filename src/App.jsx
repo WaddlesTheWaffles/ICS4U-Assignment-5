@@ -1,7 +1,8 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import HomeView from "./Views/HomeView";
 import RegisterView from "./Views/RegisterView";
+import LoginView from "./Views/LoginView";
 import MoviesView from "./Views/MoviesView";
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeView />} />
-        {/* <Route path="/register" element={<RegisterView />} />
-        <Route path="/login" element={} />
-        <Route path="/movies" element ={<MoviesView />} /> need to complete */}
+        <Route path="/register" element={<RegisterView />} />
+        <Route path="/login" element={<LoginView />} />
+        {/* <Route path="/movies" element ={<MoviesView />} /> need to complete */}
       </Routes>
     </BrowserRouter>
   )

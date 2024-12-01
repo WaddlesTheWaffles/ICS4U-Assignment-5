@@ -1,32 +1,32 @@
-.formContainerReg {
+.formContainerLog {
     display: flex;
     justify-content: center;
 }
 
-.formReg {
+.formLog {
     background-color: rgb(26, 24, 25);
     border-radius: 15px;
     position: fixed;
     margin-top: 10%;
     width: 450px;
-    height: 500px;
+    height: 300px;
     display: flex;
     flex-direction: column;
 }
 
-.boxLabelsReg {
+.boxLabelsLog {
     color: hotpink;
     margin-left: 10%;
     margin-top: 8%;
     margin-bottom: 1%;
 }
 
-.infoBoxesReg {
+.infoBoxesLog {
     margin-left: 10%;
     margin-right: 10%;
 }
 
-.registerButtonReg {
+.loginButtonLog {
     margin-top: 10%;
     margin-left: 20%;
     margin-right: 20%;
