@@ -4,8 +4,8 @@ function renderMoviesInGenre(genreId) {
 
 }
 
-function GenresList(genres = [
-    { "genreName": "Action", "id": 28 },
+function GenresList() {
+    let genresList = [{ "genreName": "Action", "id": 28 },
     { "genreName": "Adventure", "id": 12 },
     { "genreName": "Animation", "id": 16 },
     { "genreName": "Fantasy", "id": 14 },
@@ -15,15 +15,16 @@ function GenresList(genres = [
     { "genreName": "Mystery", "id": 9648 },
     { "genreName": "Western", "id": 37 },
     { "genreName": "Family", "id": 10751 },
-    { "genreName": "Tv Movie", "id": 10770 },]) {
-
+    { "genreName": "Tv Movie", "id": 10770 },]
 
     return (
         <div className="genreList">
-            {genres.map((genre) => (
-                <h1 key={genre.id} onClick={renderMoviesInGenre(genre.id)}>{genre.genreName}</h1>
-
-            ))}
+            <h1 className="genreTitle">Genres</h1>
+            <ul className="itemList">
+                {genresList.map((genre) => (
+                    <li key={genre.id} className="item">{genre.genreName}</li>
+                ))}
+            </ul>
         </div>
     )
 }

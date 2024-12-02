@@ -1,0 +1,15 @@
+.genreTitle {
+    color: hotpink;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+.itemList {
+    /* background-color: rebeccapurple; */
+}
+
+.item {
+    color: hotpink;
+    font-size: 25px;
+    margin: 2%;
+}

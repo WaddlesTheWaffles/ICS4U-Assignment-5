@@ -23,7 +23,8 @@ function LoginView() {
         <div>
             <HeaderSection />
             <div className="formContainerLog">
-                <form className="formLog" onSubmit={() => loginInfoCheck() ? alert('Info is correct, add navigate(/movieView later)') : alert('Password is incorrect')}>
+                <h1 className="formTitleLog" >Login</h1>
+                <form className="formLog" onSubmit={() => loginInfoCheck() ? navigate('/movies') : alert('Password is incorrect')}>
                     <label className="boxLabelsLog">Email:</label>
                     <input required className="infoBoxesLog" type="text" value={email} onChange={(event) => { setEmail(String(event.target.value)) }} />
                     <label className="boxLabelsLog">Password:</label>

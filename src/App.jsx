@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<HomeView />} />
         <Route path="/register" element={<RegisterView />} />
         <Route path="/login" element={<LoginView />} />
-        {/* <Route path="/movies" element ={<MoviesView />} /> need to complete */}
+        <Route path="/movies" element ={<MoviesView />} />
       </Routes>
     </BrowserRouter>
   )
