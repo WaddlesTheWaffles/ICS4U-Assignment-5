@@ -22,7 +22,7 @@ function GenresList() {
             <h1 className="genreTitle">Genres</h1>
             <ul className="itemList">
                 {genresList.map((genre) => (
-                    <li key={genre.id} className="item">{genre.genreName}</li>
+                    <li key={genre.id} className="item" onClick={() => selectGenreId(genre.id)}>{genre.genreName}</li>
                 ))}
             </ul>
         </div>
@@ -30,15 +30,3 @@ function GenresList() {
 }
 
 export default GenresList
-
-// {
-//     movies.map((movie) => (
-//         <div key={movie.id} className="movie-card" onClick={() => { loadMovie(movie.id) }}>
-//             <img
-//                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-//                 alt={movie.title}
-//                 className="movie-poster"
-//             />
-//         </div>
-//     ))
-// }

@@ -34,7 +34,12 @@
 }
 
 .title {
-    visibility: hidden;
+    color: white;
+}
+
+/* .title {
+    opacity: 0;
+    z-index: 500;
     padding-top: 300px;
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     color: black;
@@ -46,13 +51,11 @@
     bottom: 15%;
     height: 200px;
     width: 410px;
-    transition: visibility 0.5s, bottom 1s ease-in-out, color 2s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 1s ease-in-out, color 2s ease-in-out;
 }
 
 .moviePoster:hover .title {
-    visibility: visible;
+    opacity: 1;
     color: hotpink;
-    text-align: center;
-    position: relative;
-    bottom: 40%;
-}
+    transform: translateY(-40%);
+} */
