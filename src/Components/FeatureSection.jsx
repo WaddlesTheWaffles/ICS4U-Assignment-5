@@ -72,6 +72,7 @@ function FeatureSection() {
             </div>
         )
     }
+    
     let postersRendered = 0;
     return (
         <div className="featureSection">
