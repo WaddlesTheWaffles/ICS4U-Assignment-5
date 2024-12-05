@@ -7,8 +7,8 @@ function LoginView() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const adminEmail = "jayden.hoy@student.tdsb.on.ca";
-    const adminPassword = "qwertyuiop";
+    const adminEmail = "admin@gmail.com";
+    const adminPassword = "password1234";
 
     function loginInfoCheck() {
 
