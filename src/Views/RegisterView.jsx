@@ -10,7 +10,6 @@ function RegisterView() {
     const [rePassword, setRePassword] = useState("");
 
     function rePasswordCheck() { //checks if the re-Entered password is the same
-        
         if (rePassword == password) {
             return true
         } else {

@@ -6,7 +6,6 @@ import { useParams, useNavigate } from "react-router-dom";
 function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
     const navigate = useNavigate();
     const params = useParams();
-
     const [movie, setMovie] = useState(null); // Start with null
     const [isLoading, setIsLoading] = useState(true); // New loading state
     const movieId = propMovieId || params.movieId; //so detail view can be both in MoviesView and a seperate view

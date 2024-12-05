@@ -1,5 +1,4 @@
 import "./Genres.css";
-import { useState } from "react";
 
 function GenresList({ selectGenreId, genresList, genreSelected }) {
 

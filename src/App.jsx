@@ -14,7 +14,7 @@ function App() {
         <Route path="/register" element={<RegisterView />} />
         <Route path="/login" element={<LoginView />} />
         <Route path="/movies" element={<MoviesView />} />
-        <Route path="/movies/:movieId" element={<DetailView />} />
+          <Route path="/movies/:movieId" element={<DetailView />} />
       </Routes>
     </BrowserRouter>
   );
