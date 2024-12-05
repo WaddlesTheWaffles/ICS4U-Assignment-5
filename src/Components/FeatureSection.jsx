@@ -39,10 +39,10 @@ function FeatureSection() {
     useEffect(() => { //calls the api to get the 20 movies in the page
         (async function getMovies() {
             try {
-                const responsePages = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?with_original_language=en&language=en-US&api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
+                const responsePages = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?include_adult=false&with_original_language=en&language=en-US&api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
                 const page = Math.floor(Math.random() * responsePages.data.total_pages / 4) + 1;
 
-                const responseMovies = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?with_original_language=en&language=en-US&page=${page}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
+                const responseMovies = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?include_adult=false&with_original_language=en&language=en-US&page=${page}&api_key=${import.meta.env.VITE_TMDB_API_KEY}`);
                 setMovies(responseMovies.data.results);
                 setFetchingMovies(false);
             } catch (error) {

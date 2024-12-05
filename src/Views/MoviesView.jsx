@@ -18,7 +18,6 @@ function MoviesView() {
       { "genreName": "Mystery", "id": 9648 },
       { "genreName": "Western", "id": 37 },
       { "genreName": "Family", "id": 10751 },
-      // { "genreName": "Tv Movie", "id": 10770 }, bruh why is the posters like this tell mr qayum
    ];
    const [genreSelected, setGenreSelected] = useState(28); //Uses id:28 action as a default display
    const [movieIdClicked, setMovieIdClicked] = useState(912649); //Uses Venom last dance as default movie
