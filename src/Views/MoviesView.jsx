@@ -23,6 +23,7 @@ function MoviesView() {
    const [genreSelected, setGenreSelected] = useState(28); //Uses id:28 action as a default display
    const [movieIdClicked, setMovieIdClicked] = useState(912649); //Uses Venom last dance as default movie
    const [detailViewDisplayed, setdetailViewDisplayed] = useState(false);
+   const [clickedFromFeature, setClickedFromFeature] = useState(false);
 
    function setGenreId(genre) {
       setGenreSelected(genre);
@@ -31,6 +32,7 @@ function MoviesView() {
 
    function setMovieIdValue(movie) {
       setMovieIdClicked(movie)
+      setClickedFromFeature(false)
       setdetailViewDisplayed(true)
    }
 
@@ -47,7 +49,7 @@ function MoviesView() {
             </div>
             <div className='genre-view' >
                {detailViewDisplayed ?
-                  <DetailView movieId={movieIdClicked} backToGenre={returnToGenreView} />
+                  <DetailView movieId={movieIdClicked} backToGenre={returnToGenreView} clickedFromFeature={clickedFromFeature} />
                   : <GenreView genreId={genreSelected} enterDetailView={setMovieIdValue} />}
             </div>
          </div>

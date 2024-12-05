@@ -1,10 +1,24 @@
-import "./detailView.css"
+import "./detailView.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useParams, useNavigate } from "react-router-dom";
 
-function DetailView({ movieId, backToGenre }) {
+function DetailView({ movieId: propMovieId, backToGenre, clickedFromFeature }) {
+    const navigate = useNavigate();
+    const params = useParams();
+
     const [movie, setMovie] = useState(null); // Start with null
     const [isLoading, setIsLoading] = useState(true); // New loading state
+    const movieId = propMovieId || params.movieId; //so detail view can be both in MoviesView and a seperate view
+    const [featureClicked, setFeatureClicked] = useState(true);
+
+    useEffect(() => {
+        if (params.movieId == null) {
+            setFeatureClicked(false)
+        } else {
+            setFeatureClicked(true)
+        }
+    }, [params.movieId])
 
     useEffect(() => {
         (async function getMovie() {
@@ -13,15 +27,6 @@ function DetailView({ movieId, backToGenre }) {
             );
             setMovie(response.data);
             setIsLoading(false); // Set loading state to false after data is fetched
-        })();
-    }, [movieId]);
-
-    useEffect(() => {
-        (async function getMovie() {
-            const response = await axios.get(
-                `https://api.themoviedb.org/3/movie/${movieId}?api_key=${import.meta.env.VITE_TMDB_API_KEY}&append_to_response=videos`
-            );
-            setMovie(response.data);
         })();
     }, [movieId]);
 
@@ -43,7 +48,7 @@ function DetailView({ movieId, backToGenre }) {
                         <p id="textInDetail" >Description:<br />{movie.overview}</p>
                         <h3 id="textInDetail" >Released Date: {movie.release_date}</h3>
                         <h2 id="textInDetail" >Runtime: {movie.runtime} minutes</h2>
-                        <h3 id="textInDetail" >Budget: {movie.budget == 0 ? "N/A" : "$" + (movie.budget)/1000000 + " Million"}</h3>
+                        <h3 id="textInDetail" >Budget: {movie.budget == 0 ? "N/A" : "$" + (movie.budget) / 1000000 + " Million"}</h3>
                     </div>
 
                     <div className="productionCompanies">
@@ -72,9 +77,11 @@ function DetailView({ movieId, backToGenre }) {
                     </div>
                 </>
             )}
-            <button className="backButton" onClick={() => backToGenre()}>Back</button>
+            {featureClicked ?
+                <button className="backButton" onClick={() => navigate(-1)}>Back</button>
+                : <button className="backButton" onClick={() => backToGenre()}>Back</button>}
         </div>
     );
 }
 
-export default DetailView
+export default DetailView;

@@ -1,5 +1,6 @@
 import "./FeatureSection.css"
 import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom";
 import axios from "axios"
 
 function FeatureSection() {
@@ -9,6 +10,7 @@ function FeatureSection() {
     const [movie3, setMovie3] = useState(2);
     const [movie4, setMovie4] = useState(3);
     const [fetchingMovies, setFetchingMovies] = useState(true); //true means it's still fetching the movies from the api
+    const navigate = useNavigate();
 
     useEffect(() => { //Selects 3 random different movies
         (function randMovies() {
@@ -60,7 +62,7 @@ function FeatureSection() {
         postersRendered++;
         return (
             <div key={movie.id} id="inFeature" className="moviePoster">
-                <div id="inFeature" className="posterContainer">
+                <div id="inFeature" className="posterContainer" onClick={() => navigate(`/movies/${movie.id}`)}>
                     <img
                         src={movie.poster_path ?
                             `https://image.tmdb.org/t/p/w400${movie.poster_path}`
